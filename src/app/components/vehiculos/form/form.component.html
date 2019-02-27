@@ -1,0 +1,70 @@
+<div class="card bg-dark text-white" style="font-size: small;margin-left: 150px !important;margin-right: 150px !important">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+
+    <form>
+      <div class="form-group row">
+        <label for="marca" class="col-sm-2 col-form-label-sm">Marca</label>
+        <div class="col-sm-6">
+          <input type="text" required class="form-control form-control-sm" placeholder="marca" [(ngModel)]="vehiculo.marca" name="marca">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="modelo" class="col-form-label col-sm-2">Modelo</label>
+        <div class="col-sm-6">
+          <input type="text" required class="form-control form-control-sm" placeholder="modelo" [(ngModel)]="vehiculo.modelo" name="modelo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="anio" class="col-form-label col-sm-2">Anio</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" placeholder="Anio" [(ngModel)]="vehiculo.anio" name="anio">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="capacidadTanque" class="col-form-label col-sm-2">Tanque</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" placeholder="capacidad de tanque en litros" [(ngModel)]="vehiculo.capacidadTanque" name="capacidadTanque">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="capacidadCarga" class="col-form-label col-sm-2">Carga</label>
+        <div class="col-sm-6">
+          <input type="text" required class="form-control form-control-sm" placeholder="capacidad de carga" [(ngModel)]="vehiculo.capacidadCarga" name="capacidadCarga">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="numPasajeros" class="col-form-label col-sm-2">Pasajeros</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control form-control-sm" placeholder="numero de pasajeros" [(ngModel)]="vehiculo.numPasajeros" name="numPasajeros">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="select" class="col-form-label col-sm-2">Tipo</label>
+        <select class="col-sm-6" id="select" name="tipo" [(ngModel)]="tipo" name="tipo">
+          <option value="Seleccione Tipo" style="color:#008752 !important" disabled selected>Seleccione Tipo</option>
+          <option *ngFor="let tipo of listaTipos" [(value)]="tipo.idTipo">{{tipo.nombre}}</option>
+        </select>
+      </div>
+
+      
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!vehiculo.id_vehiculo else elseBlock">Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

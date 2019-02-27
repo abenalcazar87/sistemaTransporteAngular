@@ -1,0 +1,60 @@
+<div class="card border-primary mb-3" style="font-size: small;">
+  <div class="card-header">Vehiculos</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Vehiculos</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/vehiculos/form']">
+        Crear Vehiculo
+      </button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>marca</th>
+          <th>modelo</th>
+          <th>anio</th>
+          <th>capacidadTanque</th>
+          <th>capacidadCarga</th>
+          <th>numeroPasajeros</th>
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+          <td>{{ vehiculo.id_vehiculo }}</td>
+          <td>{{ vehiculo.marca }}</td>
+          <td>{{ vehiculo.modelo }}</td>
+          <td>{{ vehiculo.anio }}</td>
+          <td>{{ vehiculo.capacidadTanque }}</td>
+          <td>{{ vehiculo.capacidadCarga }}</td>
+          <td>{{ vehiculo.numPasajeros }}</td>
+          <td>
+            <button type="button" name="editar" [routerLink]="['/vehiculos/form', vehiculo.id_vehiculo]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(vehiculo)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card-header">Total de Combustible</div>
+  <div class="card-body text-primary">
+      <table class="table table-bordered table-striped">
+        <tr>
+            <td>Total litros:  </td>{{ tipo }}
+        </tr>
+        <tr>
+            <td>Total Galones:  </td>{{ galones }}
+        </tr>
+        
+      </table>
+
+  </div>
+
+</div>
